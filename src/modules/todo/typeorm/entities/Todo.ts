@@ -18,7 +18,6 @@ class Todo {
   @Column({
     type: 'enum',
     enum: TodoFinishedEnum,
-    default: TodoFinishedEnum.N,
   })
   finished: TodoFinishedEnum;
 

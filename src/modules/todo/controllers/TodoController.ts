@@ -61,7 +61,7 @@ export default class TodoController {
     return response.json(todo);
   }
 
-  public async updateFinished(
+  public async finished(
     request: Request,
     response: Response
   ): Promise<Response> {

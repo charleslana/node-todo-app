@@ -19,24 +19,30 @@ todoRouter.get(
 
 todoRouter.post(
   '/',
-  celebrate({
-    [Segments.BODY]: {
-      description: Joi.string().required(),
+  celebrate(
+    {
+      [Segments.BODY]: {
+        description: Joi.string().trim().min(1).max(255).required(),
+      },
     },
-  }),
+    { abortEarly: false }
+  ),
   todoController.create
 );
 
 todoRouter.put(
   '/:id',
-  celebrate({
-    [Segments.PARAMS]: {
-      id: Joi.number().required(),
+  celebrate(
+    {
+      [Segments.PARAMS]: {
+        id: Joi.number().required(),
+      },
+      [Segments.BODY]: {
+        description: Joi.string().trim().min(1).max(255).required(),
+      },
     },
-    [Segments.BODY]: {
-      description: Joi.string().required(),
-    },
-  }),
+    { abortEarly: false }
+  ),
   todoController.update
 );
 
@@ -47,7 +53,7 @@ todoRouter.put(
       id: Joi.number().required(),
     },
   }),
-  todoController.updateFinished
+  todoController.finished
 );
 
 todoRouter.delete(

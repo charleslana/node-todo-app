@@ -22,6 +22,7 @@ export class CreateTodo1637274854781 implements MigrationInterface {
             name: 'finished',
             type: 'enum',
             enum: [TodoFinishedEnum.N, TodoFinishedEnum.Y],
+            default: `'${TodoFinishedEnum.N}'`,
           },
           {
             name: 'created_at',

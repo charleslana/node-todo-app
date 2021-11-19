@@ -16,7 +16,6 @@ class CreateTodoService {
 
     const todo = todoRepository.create({
       description,
-      finished: TodoFinishedEnum.N,
     });
 
     await todoRepository.save(todo);
